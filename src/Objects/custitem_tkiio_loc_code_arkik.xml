@@ -1,0 +1,49 @@
+<itemcustomfield scriptid="custitem_tkiio_loc_code_arkik">
+  <accesslevel>2</accesslevel>
+  <appliestogroup>T</appliestogroup>
+  <appliestoinventory>T</appliestoinventory>
+  <appliestokit>T</appliestokit>
+  <appliestononinventory>T</appliestononinventory>
+  <appliestoothercharge>T</appliestoothercharge>
+  <appliestopricelist>F</appliestopricelist>
+  <appliestoservice>T</appliestoservice>
+  <appliestospecificitems>F</appliestospecificitems>
+  <appliestosubplan>F</appliestosubplan>
+  <applyformatting>F</applyformatting>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>Campo que servirá para seleccionar el código de ubicación de Arkik donde estará el artículo</description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>MULTISELECT</fieldtype>
+  <globalsearch>F</globalsearch>
+  <help>Seleccione una o más ubicaciones de Arkik en donde estará el artículo disponible.</help>
+  <includechilditems>F</includechilditems>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>F</isparent>
+  <itemsubtype>BOTH</itemsubtype>
+  <label>Location : Código Arkik</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete>NO_ACTION</onparentdelete>
+  <parentsubtab></parentsubtab>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype>[scriptid=customrecord_tkiio_loc_cod_arkik]</selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+  <subtab>ITEMMAIN</subtab>
+</itemcustomfield>

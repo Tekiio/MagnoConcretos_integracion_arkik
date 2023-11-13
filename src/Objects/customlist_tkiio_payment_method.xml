@@ -1,0 +1,16 @@
+<customlist scriptid="customlist_tkiio_payment_method">
+  <description>Lista que contendrán los métodos de pago necesarios para Arkik (CO y CR)</description>
+  <isinactive>F</isinactive>
+  <isordered>T</isordered>
+  <name>Método de Pago Arkik</name>
+  <customvalues>
+    <customvalue scriptid="val_505126_6133865_sb1_762">
+      <isinactive>F</isinactive>
+      <value>CO (Cash)</value>
+    </customvalue>
+    <customvalue scriptid="val_505127_6133865_sb1_919">
+      <isinactive>F</isinactive>
+      <value>CR (Credit)</value>
+    </customvalue>
+  </customvalues>
+</customlist>

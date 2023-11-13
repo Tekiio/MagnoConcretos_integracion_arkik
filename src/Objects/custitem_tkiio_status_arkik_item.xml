@@ -1,0 +1,49 @@
+<itemcustomfield scriptid="custitem_tkiio_status_arkik_item">
+  <accesslevel>2</accesslevel>
+  <appliestogroup>T</appliestogroup>
+  <appliestoinventory>T</appliestoinventory>
+  <appliestokit>T</appliestokit>
+  <appliestononinventory>T</appliestononinventory>
+  <appliestoothercharge>T</appliestoothercharge>
+  <appliestopricelist>F</appliestopricelist>
+  <appliestoservice>T</appliestoservice>
+  <appliestospecificitems>F</appliestospecificitems>
+  <appliestosubplan>F</appliestosubplan>
+  <applyformatting>F</applyformatting>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>Campo que dirá si el artículo ya fue sincronizado en arkik o si ocurrió un error y cual fue dicho error</description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>TEXT</fieldtype>
+  <globalsearch>F</globalsearch>
+  <help>Campo que se llenará de forma automática, dirá si el artículo fue correctamente sincronizado en Arkik o si no pudo ser sincronizado, indicando que error ocurrió.</help>
+  <includechilditems>F</includechilditems>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <isparent>F</isparent>
+  <itemsubtype>BOTH</itemsubtype>
+  <label>Estatus Sincronización Arkik</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete></onparentdelete>
+  <parentsubtab></parentsubtab>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype></selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+  <subtab>ITEMMAIN</subtab>
+</itemcustomfield>

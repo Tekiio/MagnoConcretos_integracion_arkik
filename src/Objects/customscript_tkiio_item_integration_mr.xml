@@ -1,0 +1,115 @@
+<mapreducescript scriptid="customscript_tkiio_item_integration_mr">
+  <description>Script que ayudará a sincronizar los artículos con la api de Arkik</description>
+  <isinactive>F</isinactive>
+  <name>TKIIO-Integracion-Articulos-MR</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/Integracion-Arkik/Integracion Articulos/TKIIO-Integracion-Articulos-MR.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_tkiio_code_aut_items">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que servirá para poner el código de autorización combinando el usuario y la contraseña</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese el código de autorización combinando el usuario y la contraseña.</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>Código de autorización</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_url_items">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que almacenará la url de la api en donde se realizará la sincronización</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Inserte la url de la api de arkik para poder realizar la sincronización</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>Url</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_api_key_items">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que almacenará la API Key proporcionada para el correcto funcionamiento de la sincronización.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese la API Key proporcionada para la sincronización de Netsuite con Arkik</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>API key</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_tkiio_item_integration_mr">
+      <buffersize>1</buffersize>
+      <concurrencylimit>2</concurrencylimit>
+      <custscript_tkiio_api_key_items>1</custscript_tkiio_api_key_items>
+      <custscript_tkiio_code_aut_items>1</custscript_tkiio_code_aut_items>
+      <custscript_tkiio_url_items>/api/SyncItemMaster</custscript_tkiio_url_items>
+      <isdeployed>F</isdeployed>
+      <loglevel>AUDIT</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>SCHEDULED</status>
+      <title>TKIIO-Integracion-Articulos-MR</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <everyweekday>
+          <repeat>PT15M</repeat>
+          <startdate>2023-10-01</startdate>
+          <starttime>08:00:00Z</starttime>
+        </everyweekday>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</mapreducescript>

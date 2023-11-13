@@ -1,0 +1,115 @@
+<mapreducescript scriptid="customscript_tkiio_client_integration_mr">
+  <description>Script que ayudará a sincronizar clientes desde Netsuite a Arkik.</description>
+  <isinactive>F</isinactive>
+  <name>TKIIO-Integracion-Clientes-MR</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/Integracion-Arkik/TKIIO-Integracion-Clientes-MR.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_tkiio_authorization">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que servirá para añadir la autenticación básica de usuario y contraseña, dicho campo debe de combinar los dos datos, este dato se puede calcular en postman o en insomia.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese el código de Autorización calculado con el Usuario y Contraseña.</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>Código de Autorización</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_url">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que almacenará la URL del servicio a consumir</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese la URL correspondiente de ARKIK.</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>URL</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_api_key">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que almacenará la API Key</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese la API-Key proporcionada para la correcta comunicación con la API</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>API Key</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_tkiio_client_integration_mr">
+      <buffersize>1</buffersize>
+      <concurrencylimit>2</concurrencylimit>
+      <custscript_tkiio_api_key> </custscript_tkiio_api_key>
+      <custscript_tkiio_authorization>1</custscript_tkiio_authorization>
+      <custscript_tkiio_url>/api/SyncPartyMaster</custscript_tkiio_url>
+      <isdeployed>F</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>SCHEDULED</status>
+      <title>TKIIO-Integracion-Clientes-MR</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <everyweekday>
+          <repeat>PT15M</repeat>
+          <startdate>2023-09-04</startdate>
+          <starttime>12:00:00Z</starttime>
+        </everyweekday>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</mapreducescript>

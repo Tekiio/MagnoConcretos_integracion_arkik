@@ -1,0 +1,312 @@
+<mapreducescript scriptid="customscript_tkiio_integracion_ajuste_mr">
+  <description>Script que ayudará a obtener las entradas y salidas de material de Arkik a Netsuite, creando de esta manera los ajustes de inventario correspondientes</description>
+  <isinactive>F</isinactive>
+  <name>Tkiio - Integracion - Ajustes - MR</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/Integracion-Arkik/Integracion Consumos/Tkiio-Integracion-Ajustes-MR.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_tkiio_code_aut_consumes">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Parámetro del script, el cual contendrá el código de autorización del ambiente</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese el código de autorización, dicho campo deberá ser la combinación del usuario y contraseña, para lo cual deberá ser un texto cifrado</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>CÓDIGO DE AUTORIZACIÓN</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_url_consumes">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que contendrá la url de la Api</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese la url de la api proporcionada para poder realizar la sincronización</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>URL</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_api_key_consumes">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que contendrá la Api Key proporcionada de la API</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese la API KEY proporcionada por el administrador de Arkik para poder realizar la sincronización</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>API KEY</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_start_date">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que servirá para almacenar la fecha de inicio de filtro para obtener las transacciones en Arkik</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>DATE</fieldtype>
+      <help>Ingrese la fecha desde la cual quiera obtener las transacciones de arkik, es decir, ingrese la fecha de inicio desde la cual quiere sincronizar los datos de Arkik a Netsuite.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Fecha de Inicio</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_final_date">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que servirá para almacenar la fecha final de filtro para obtener las transacciones en Arkik</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>DATE</fieldtype>
+      <help>Ingrese la fecha hasta la cual quiera obtener las transacciones de arkik, es decir, ingrese la fecha final  desde la cual quiere sincronizar los datos de Arkik a Netsuite.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Fecha Final</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_adjusment_account">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que servirá para añadir a que cuenta afectará dicho movimiento.</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Seleccione una cuenta, dicha cuenta será la que se verá afectada en los diferentes movimientos que se sincronicen de Arkik a Netsuite.&#xd;
+Si no se selecciona una cuenta, no podrá hacer el movimiento.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Cuenta de Ajuste</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-112</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_proveedor_aux">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Proveedor auxiliar, este campo se utilizara para que se coloque un proveedor provisional en lo que arkik termina con su modificación</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Proveedor auxiliar, este campo se utilizara para que se coloque un proveedor provisional en lo que arkik termina con su modificación</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Proveedor</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>SET_NULL</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-3</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_status_default">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Estado de creacion por defecto</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Estado de creacion por defecto</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Status de creacion</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>NO_ACTION</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-243</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_employee_default">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Empleado con el que se generarán las ordenes de compra y transacciones que sean necesario tener un empleado</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help>Empleado con el que se generarán las ordenes de compra y transacciones que sean necesario tener un empleado</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Empleado</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>SET_NULL</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-4</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_next_approver">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Next approver</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete>SET_NULL</onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>-4</selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_tkiio_integracion_ajustes">
+      <buffersize>1</buffersize>
+      <concurrencylimit>2</concurrencylimit>
+      <custscript_tkiio_adjusment_account></custscript_tkiio_adjusment_account>
+      <custscript_tkiio_api_key_consumes></custscript_tkiio_api_key_consumes>
+      <custscript_tkiio_code_aut_consumes></custscript_tkiio_code_aut_consumes>
+      <custscript_tkiio_employee_default></custscript_tkiio_employee_default>
+      <custscript_tkiio_final_date></custscript_tkiio_final_date>
+      <custscript_tkiio_next_approver></custscript_tkiio_next_approver>
+      <custscript_tkiio_proveedor_aux></custscript_tkiio_proveedor_aux>
+      <custscript_tkiio_start_date></custscript_tkiio_start_date>
+      <custscript_tkiio_status_default>2</custscript_tkiio_status_default>
+      <custscript_tkiio_url_consumes>/api/GetMoveInventory</custscript_tkiio_url_consumes>
+      <isdeployed>F</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>SCHEDULED</status>
+      <title>Tkiio - Integracion - Ajustes - MR</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <everyweekday>
+          <repeat>PT15M</repeat>
+          <startdate>2023-10-19</startdate>
+          <starttime>06:00:00Z</starttime>
+        </everyweekday>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</mapreducescript>

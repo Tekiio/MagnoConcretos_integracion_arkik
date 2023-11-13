@@ -1,0 +1,194 @@
+<mapreducescript scriptid="customscript_tkiio_integ_pedidos_mr">
+  <description>Script que servirá para sincronizar los pedidos y remisiones de Arkik con las Órdenes de Venta dentro de Netsuite</description>
+  <isinactive>F</isinactive>
+  <name>TKIIO - Integracion - Pedidos - MR</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/Integracion-Arkik/Integracion Pedidos/TKIIO-Integracion-Pedidos-MR.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_tkiio_integ_ped_date_start">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que servirá para almacenar la fecha de inicio desde cuando se quiera realizar la sincronización</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>DATE</fieldtype>
+      <help>Ingrese la Fecha desde cuando se quiera realizar la sincronización de Arkik a Netsuite.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Fecha Inicio</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_integ_ped_date_end">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que servirá para almacenar la  fecha fin desde cuando se quiera realizar la sincronización</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>DATE</fieldtype>
+      <help>Ingrese la fecha hasta la cual se quiera realizar la sincronización.</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Fecha Fin</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_code_aut_pedidos">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Parámetro del script, el cual contendrá el código de autorización del ambiente</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese el código de autorización, dicho campo deberá ser la combinación del usuario y contraseña, para lo cual deberá ser un texto cifrado</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>CÓDIGO DE AUTORIZACIÓN</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_url_pedidos">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que contendrá la url de la Api</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese la url de la api proporcionada para poder realizar la sincronización</help>
+      <isformula>F</isformula>
+      <ismandatory>T</ismandatory>
+      <label>URL</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+    <scriptcustomfield scriptid="custscript_tkiio_api_key_pedidos">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description>Campo que contendrá la Api Key proporcionada de la API</description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>TEXT</fieldtype>
+      <help>Ingrese la API KEY proporcionada por el administrador de Arkik para poder realizar la sincronización</help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>API KEY</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <setting></setting>
+      <storevalue>T</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy2">
+      <buffersize>1</buffersize>
+      <concurrencylimit>2</concurrencylimit>
+      <custscript_tkiio_api_key_pedidos> </custscript_tkiio_api_key_pedidos>
+      <custscript_tkiio_code_aut_pedidos>1</custscript_tkiio_code_aut_pedidos>
+      <custscript_tkiio_integ_ped_date_end>2023-07-10</custscript_tkiio_integ_ped_date_end>
+      <custscript_tkiio_integ_ped_date_start>2023-07-10</custscript_tkiio_integ_ped_date_start>
+      <custscript_tkiio_url_pedidos>/api/GetShipment</custscript_tkiio_url_pedidos>
+      <isdeployed>F</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>SCHEDULED</status>
+      <title>TKIIO - Integracion - Pedidos - MR 2</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <everyweekday>
+          <repeat>PT15M</repeat>
+          <startdate>2023-10-19</startdate>
+          <starttime>06:00:00Z</starttime>
+        </everyweekday>
+      </recurrence>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_tkiio_integ_pedidos_mr">
+      <buffersize>1</buffersize>
+      <concurrencylimit>2</concurrencylimit>
+      <custscript_tkiio_api_key_pedidos> </custscript_tkiio_api_key_pedidos>
+      <custscript_tkiio_code_aut_pedidos>1</custscript_tkiio_code_aut_pedidos>
+      <custscript_tkiio_integ_ped_date_end>2023-07-10</custscript_tkiio_integ_ped_date_end>
+      <custscript_tkiio_integ_ped_date_start>2023-07-10</custscript_tkiio_integ_ped_date_start>
+      <custscript_tkiio_url_pedidos>/api/arkik-link/api/GetShipment</custscript_tkiio_url_pedidos>
+      <isdeployed>F</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>NOTSCHEDULED</status>
+      <title>TKIIO - Integracion - Pedidos - MR</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-10-19</startdate>
+          <starttime>08:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</mapreducescript>

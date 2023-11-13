@@ -1,0 +1,20 @@
+<customlist scriptid="customlist_tkiio_arkik_roles">
+  <description>Lista que contendrá la lista de roles para la integración con Arkik.</description>
+  <isinactive>F</isinactive>
+  <isordered>T</isordered>
+  <name>Roles Arkik</name>
+  <customvalues>
+    <customvalue scriptid="val_505097_6133865_sb1_923">
+      <isinactive>F</isinactive>
+      <value>AG (Sold To party)</value>
+    </customvalue>
+    <customvalue scriptid="val_505098_6133865_sb1_234">
+      <isinactive>F</isinactive>
+      <value>ZS (Point to delivery)</value>
+    </customvalue>
+    <customvalue scriptid="val_505099_6133865_sb1_658">
+      <isinactive>F</isinactive>
+      <value>WE (Ship to party or Jobsite)</value>
+    </customvalue>
+  </customvalues>
+</customlist>
