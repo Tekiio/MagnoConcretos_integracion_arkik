@@ -1,0 +1,36 @@
+<othercustomfield scriptid="custrecord_tkiio_code_locat_arkik">
+  <accesslevel>2</accesslevel>
+  <applyformatting>F</applyformatting>
+  <checkspelling>F</checkspelling>
+  <defaultchecked>F</defaultchecked>
+  <defaultselection></defaultselection>
+  <defaultvalue></defaultvalue>
+  <description>Campo que servirá para ingresar el código de 4 dígitos de Arkik</description>
+  <displayheight></displayheight>
+  <displaytype>NORMAL</displaytype>
+  <displaywidth></displaywidth>
+  <dynamicdefault></dynamicdefault>
+  <encryptatrest>F</encryptatrest>
+  <fieldtype>TEXT</fieldtype>
+  <help>Ingrese el código Arkik correspondiente a la planta.&#xd;
+Dicho código debe de contener únicamente 4 dígitos y debe de ingresarse de la siguiente manera: &apos;P001&apos;.</help>
+  <isformula>F</isformula>
+  <ismandatory>F</ismandatory>
+  <label>Código Ubicación Arkik</label>
+  <linktext></linktext>
+  <maxlength></maxlength>
+  <maxvalue></maxvalue>
+  <minvalue></minvalue>
+  <onparentdelete></onparentdelete>
+  <rectype>-103</rectype>
+  <searchcomparefield></searchcomparefield>
+  <searchdefault></searchdefault>
+  <searchlevel>2</searchlevel>
+  <selectrecordtype></selectrecordtype>
+  <showhierarchy>F</showhierarchy>
+  <showinlist>F</showinlist>
+  <sourcefilterby></sourcefilterby>
+  <sourcefrom></sourcefrom>
+  <sourcelist></sourcelist>
+  <storevalue>T</storevalue>
+</othercustomfield>
