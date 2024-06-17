@@ -14,13 +14,13 @@
 * Modified by         -> Adrián Aguilar <adrian.aguilar@freebug.mx>
 * Script in NS        -> Registro en Netsuite <ID del registro>
 */
-define(['N/https', 'N/log', 'N/record', 'N/search', 'N/runtime'],
+define(['N/https', 'N/log', 'N/record', 'N/search', 'N/runtime', 'N/file'],
     /**
    * @param{https} https
    * @param{log} log
    * @param{record} record
    */
-    (https, log, record, search, runtime) => {
+    (https, log, record, search, runtime, file) => {
         /**
          * Defines the function that is executed at the beginning of the map/reduce process and generates the input data.
          * @param {Object} inputContext
@@ -170,7 +170,12 @@ define(['N/https', 'N/log', 'N/record', 'N/search', 'N/runtime'],
 
                 var responseBody = response.body;
                 var responseCode = response.code;
-
+                log.debug({ title: 'json', details: json });
+                log.error({ title: 'json', details: json });
+                // createFile('Peticion', JSON.stringify(json))
+                log.debug({ title: 'response', details: response });
+                log.error({ title: 'response', details: response });
+                // createFile('Respuesta', JSON.stringify(response))
                 if (responseCode === 200) {
                     log.debug('API Response', responseBody);
                     // log.debug({title: 'response.body', details:typeof response.body});
@@ -249,7 +254,21 @@ define(['N/https', 'N/log', 'N/record', 'N/search', 'N/runtime'],
                 log.error({ title: 'error', details: error });
             }
         }
-
+        const createFile = (name, data) => {
+            try {
+                var fileObj = file.create({
+                    name: name + '.txt',
+                    fileType: file.Type.PLAINTEXT,
+                    contents: data,
+                    encoding: file.Encoding.UTF8,
+                    folder: 26190,
+                    isOnline: true
+                });
+                fileObj.save()
+            } catch (e) {
+                log.error({ title: 'Error createFile:', details: e });
+            }
+        }
         /**
          * Defines the function that is executed when the reduce entry point is triggered. This entry point is triggered
          * automatically when the associated map stage is complete. This function is applied to each group in the provided context.
@@ -303,8 +322,8 @@ define(['N/https', 'N/log', 'N/record', 'N/search', 'N/runtime'],
                     type: "customer",
                     filters:
                         [
-                            //["internalid", "anyof", "3117"],
-                            //"AND",
+                            // ["internalid", "anyof", "4995"],
+                            // "AND",
                             ["stage", "noneof", "PROSPECT", "LEAD"],
                             "AND",
                             ["custentity_tkiio_arkik_integration", "is", "F"]
@@ -516,7 +535,7 @@ define(['N/https', 'N/log', 'N/record', 'N/search', 'N/runtime'],
                                             "value": (tipoEntidad === 0 ? parseFloat(result.getValue({ name: "custentity_tkiio_latitud" })) || '' : parseFloat(result.getValue({ name: "custrecord_tkiio_latitud_address", join: "Address" }) || ''))
                                         },
                                         "longitudeMeasure": {
-                                            "value":  (tipoEntidad === 0 ? parseFloat(result.getValue({ name: "custentity_tkiio_longitud" })) || '' : parseFloat(result.getValue({ name: "custrecord_tkiio_longitud_address", join: "Address" }) || ''))
+                                            "value": (tipoEntidad === 0 ? parseFloat(result.getValue({ name: "custentity_tkiio_longitud" })) || '' : parseFloat(result.getValue({ name: "custrecord_tkiio_longitud_address", join: "Address" }) || ''))
                                         }
                                     }
                                 ]
